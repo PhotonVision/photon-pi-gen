@@ -33,3 +33,13 @@ jobs:
       with:
         files: "*PhotonVision.info, build.log, *PhotonVision.zip"
         allow-failure: true
+        
+    #
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: built-image
+        path: |
+          ./*PhotonVision.info
+          ./build.log
+          ./*PhotonVision.zip
