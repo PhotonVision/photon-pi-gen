@@ -24,6 +24,9 @@ jobs:
     - name: Run build-docker.sh
       run: ./build-docker.sh
 
+    - name: APT update
+      run: sudo apt update
+    
     - name: Change to deploy directory
       run: cd deploy
 
