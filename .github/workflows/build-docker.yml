@@ -32,8 +32,12 @@ jobs:
       uses: andstor/file-existence-action@v1
       with:
         files: "*PhotonVision.info, build.log, *PhotonVision.zip"
-        allow-failure: true
+        allow_failure: true
         
+    # Print output directory files
+    - name: List output files
+      run: ls -lh
+      
     #
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
