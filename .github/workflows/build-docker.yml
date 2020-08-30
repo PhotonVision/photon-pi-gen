@@ -20,12 +20,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
 
-    # Runs a single command using the runners shell
+    - name: APT update
+      run: sudo apt update
+
+    # Build image with docker
     - name: Run build-docker.sh
       run: ./build-docker.sh
 
-    - name: APT update
-      run: sudo apt update
 
     # Print output directory files
     - name: List output files
@@ -35,7 +36,7 @@ jobs:
     - name: Check output
       uses: andstor/file-existence-action@v1
       with:
-        files: "*PhotonVision.info, build.log, *PhotonVision.zip"
+        files: "./deploy/*PhotonVision.info, ./deploy/build.log, ./deploy/image_*PhotonVision.zip"
         allow_failure: true
       
     #
@@ -44,6 +45,6 @@ jobs:
       with:
         name: built-image
         path: |
-          ./*PhotonVision.info
-          ./build.log
-          ./*PhotonVision.zip
+          ./deploy/*PhotonVision.info
+          ./deploy/build.log
+          ./deploy/image_*PhotonVision.zip
