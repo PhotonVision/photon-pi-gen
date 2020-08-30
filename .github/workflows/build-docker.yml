@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: built-image
-        path: ./deploy/image-*PhotonVision.zip
+        path: ./deploy/image_*PhotonVision.zip
 
     - name: Upload debug artifacts
       uses: actions/upload-artifact@v2
