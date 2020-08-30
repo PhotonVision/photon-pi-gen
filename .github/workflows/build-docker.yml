@@ -26,13 +26,10 @@ jobs:
 
     - name: APT update
       run: sudo apt update
-    
-    - name: Change to deploy directory
-      run: cd deploy
 
     # Print output directory files
     - name: List output files
-      run: ls -lh
+      run: ls -lh deploy
 
     # Runs a set of commands using the runners shell
     - name: Check output
