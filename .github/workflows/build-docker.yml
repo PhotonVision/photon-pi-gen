@@ -40,7 +40,7 @@ jobs:
     - name: Upload debug artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: built-image
+        name: debug-files
         path: | 
           ./deploy/*PhotonVision.info
           ./deploy/build.log
