@@ -31,19 +31,16 @@ jobs:
     - name: List output files
       run: ls -lh deploy
 
-    # Runs a set of commands using the runners shell
-    #- name: Check output
-    #  uses: andstor/file-existence-action@v1
-    #  with:
-    #    files: "./deploy/*PhotonVision.info, ./deploy/build.log, ./deploy/image_*PhotonVision.zip"
-    #    allow_failure: true
-      
-    #
-    - name: Upload artifacts
+    - name: Upload built image
       uses: actions/upload-artifact@v2
       with:
         name: built-image
-        path: |
+        path: ./deploy/image-*PhotonVision.zip
+
+    - name: Upload debug artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: built-image
+        path: | 
           ./deploy/*PhotonVision.info
           ./deploy/build.log
-          ./deploy/image_*PhotonVision.zip
