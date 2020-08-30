@@ -36,6 +36,7 @@ jobs:
       with:
         name: built-image
         path: ./deploy/image_*PhotonVision.zip
+        if-no-files-found: error
 
     - name: Upload debug artifacts
       uses: actions/upload-artifact@v2
@@ -44,3 +45,4 @@ jobs:
         path: | 
           ./deploy/*PhotonVision.info
           ./deploy/build.log
+        if-no-files-found: error
